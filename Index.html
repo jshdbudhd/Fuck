@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Cyber Bypass v11.0 - Professional Edition</title>
+    <style>
+        :root { --main-cyan: #00f2ea; --main-pink: #ff0050; --dark-bg: #050505; --card-bg: #111; }
+        body { background: var(--dark-bg); color: #fff; font-family: 'Segoe UI', Tahoma, sans-serif; display: flex; justify-content: center; padding: 20px; min-height: 100vh; margin: 0; }
+        .container { background: var(--card-bg); width: 100%; max-width: 700px; border-radius: 30px; padding: 40px; border: 1px solid #222; box-shadow: 0 25px 50px rgba(0,0,0,0.8); position: relative; }
+        h1 { text-align: center; color: var(--main-cyan); font-size: 1.6rem; letter-spacing: 2px; margin-bottom: 30px; border-bottom: 1px solid #222; padding-bottom: 15px; }
+        
+        .monitor-box { background: #000; border-radius: 15px; padding: 15px; margin-bottom: 25px; border-left: 4px solid var(--main-pink); font-family: monospace; font-size: 0.8rem; color: #0f0; max-height: 100px; overflow-y: auto; }
+        
+        textarea { width: 100%; height: 140px; background: #1a1a1a; border: 2px solid #333; border-radius: 15px; color: #fff; padding: 20px; font-size: 1.3rem; outline: none; transition: 0.4s; box-sizing: border-box; }
+        textarea:focus { border-color: var(--main-cyan); box-shadow: 0 0 20px rgba(0, 242, 234, 0.2); }
+        
+        .controls { display: grid; grid-template-columns: 2fr 1fr; gap: 15px; margin-top: 25px; }
+        .btn { padding: 18px; border-radius: 15px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 1rem; text-transform: uppercase; }
+        .btn-ai { background: linear-gradient(90deg, var(--main-cyan), var(--main-pink)); color: #000; }
+        .btn-copy { background: #333; color: #fff; }
+        .btn:hover { transform: scale(1.02); opacity: 0.9; }
+
+        .output-box { margin-top: 30px; background: #000; padding: 25px; border-radius: 20px; border: 2px dashed #444; min-height: 60px; font-size: 1.8rem; text-align: center; word-wrap: break-word; line-height: 2.2; color: #fff; }
+        .footer-info { text-align: center; font-size: 0.7rem; color: #555; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>CYBER BYPASS ENGINE <span style="color:var(--main-pink)">v11</span></h1>
+
+    <div class="monitor-box" id="aiLog">
+        [SYSTEM]: جاهز لتحليل السياسات العكسية...<br>
+        [SYSTEM]: تم تفعيل بروتوكول التشويه البصري العشوائي.
+    </div>
+
+    <textarea id="textInput" placeholder="اكتب الكلمات الحساسة هنا..."></textarea>
+
+    <div class="controls">
+        <button class="btn btn-ai" onclick="megaProcess()">تحليل وتشفير عسريع ⚡</button>
+        <button class="btn btn-copy" onclick="copyResult()">نسخ 📋</button>
+    </div>
+
+    <div class="output-box" id="textOutput">النتيجة تظهر هنا...</div>
+
+    <div class="footer-info">
+        هذا النظام يقوم بتوزيع النقط والمدات (ـ.ـ , ـًـ , ـ،ـ) عشوائياً لكسر خوارزميات الـ OCR.
+    </div>
+</div>
+
+<script>
+    function log(msg) {
+        const logBox = document.getElementById('aiLog');
+        logBox.innerHTML += `<br>[AI]: ${msg}`;
+        logBox.scrollTop = logBox.scrollHeight;
+    }
+
+    function megaProcess() {
+        const input = document.getElementById('textInput').value;
+        if(!input) return;
+
+        log("جاري فحص الثغرات البصرية...");
+        
+        const disruptors = ["ـ.ـ", "ـًـ", "ـ،ـ", "ـ*ـ", "ـ+ـ", "ـ^ـ"];
+        const charMap = {
+            'ك': 'ڪ', 'ه': 'ھ', 'ي': 'ی', 'و': 'ۏ', 'ل': 'ڵ', 'ا': 'ٱ'
+        };
+
+        let words = input.split(' ');
+        let result = words.map(word => {
+            let processed = "";
+            for (let i = 0; i < word.length; i++) {
+                let char = word[i];
+         
+                let mappedChar = charMap[char] || char;
+                
+                
+                let dist = disruptors[Math.floor(Math.random() * disruptors.length)];
+                
+                
+                processed += mappedChar + (i < word.length - 1 ? "\u200D" + dist + "\u200D" : "");
+            }
+            return processed;
+        }).join('   ');
+
+        document.getElementById('textOutput').innerText = result;
+        log("تم إنتاج النسخة المعاكسة للسياسة بنجاح ✅");
+    }
+
+    function copyResult() {
+        const result = document.getElementById('textOutput').innerText;
+        if(result.includes("النتيجة")) return;
+        navigator.clipboard.writeText(result);
+        alert("تم النسخ بنجاح! جربها الآن في تيك توك.");
+    }
+</script>
+
+</body>
+</html>
